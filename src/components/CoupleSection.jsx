@@ -44,7 +44,7 @@ export default function CoupleSection() {
           className="flex flex-col items-center space-y-4"
         >
           <div className="w-48 h-48 rounded-full overflow-hidden border-2 border-luxury-gold/50 shadow-xl">
-            <img src={resi} alt="Bride" className="w-full h-full object-cover" />
+            <img src={'/assets/gallery/resi.jpeg'} alt="Bride" className="w-full h-full object-cover" />
           </div>
           <h3 className="text-3xl font-serif text-luxury-gold italic">Resi Oktavia</h3>
           <p className="text-sm font-light text-stone-400">Putri dari Bpk. Horas Tobing & Ibu Risma Br. Panggabean</p>

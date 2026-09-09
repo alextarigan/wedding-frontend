@@ -8,6 +8,8 @@ import GiftSection from './components/GiftSection';
 import RsvpForm from './components/RsvpForm';
 import MusicPlayer from './components/MusicPlayer';
 import GallerySection from './components/GallerySection';
+import LoveStorySection from './components/LoveStorySection';
+import ClosingSection from './components/ClosingSection';
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,9 +42,11 @@ export default function App() {
       <HeroSection />
       <CoupleSection />
       <EventSection />
+      <LoveStorySection/>
       <GallerySection />
       <GiftSection />
-      <RsvpForm />
+      {/* <RsvpForm /> */}
+      <ClosingSection/>
       
       {isOpen && <MusicPlayer isPlaying={isPlaying} togglePlay={togglePlay} />}
     </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import bgImage from '../assets/wedding.jpg';
 
 export default function WelcomeScreen({ guestName, onOpen }) {
   return (
@@ -9,10 +8,8 @@ export default function WelcomeScreen({ guestName, onOpen }) {
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-50 bg-[#121212] text-stone-200 flex flex-col items-center justify-center p-6 text-center overflow-hidden"
     >
-      {/* Background Image */}
       <img 
-        src={bgImage} 
-        alt="Welcome Background" 
+        src='/assets/gallery/RPW_9738.webp' 
         className="absolute inset-0 w-full h-full object-cover z-0"
       />
 

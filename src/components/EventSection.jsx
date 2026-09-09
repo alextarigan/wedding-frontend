@@ -28,23 +28,9 @@ export default function EventSection() {
 
   const events = [
     {
-      title: "Martumpol",
-      date: "Jumat, 23 Oktober 2026",
-      time: "08:00 WIB - Selesai",
-      location: "Sopo Sonang, Duri-Riau",
-      gmapUrl: "https://maps.app.goo.gl/b7wfqg7HVWza1Az59"
-    },
-    {
-      title: "Maba Belo Selambar",
-      date: "Jumat, 23 Oktober 2026",
-      time: "19:00 WIB - Selesai",
-      location: "Aula GBKP, Duri-Riau",
-      gmapUrl: "https://maps.app.goo.gl/Y5A2UzvbUJ2J1JHYA"
-    },
-    {
       title: "Pemberkatan Nikah",
       date: "Jumat, 06 November 2026",
-      time: "08:00 WIB - Selesai",
+      time: "08:30 WIB - Selesai",
       location: "GKPI Bethesda, Duri-Riau",
       gmapUrl: "https://maps.app.goo.gl/vMYgHkcPn8Vim4T5A"
     },

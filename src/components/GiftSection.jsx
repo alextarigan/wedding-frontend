@@ -22,7 +22,7 @@ export default function GiftSection() {
       >
         <h2 className="text-3xl font-serif text-luxury-gold italic">Tanda Kasih</h2>
         <p className="text-sm font-light text-stone-400">
-          Doa restu Anda merupakan karunia terindah bagi kami. Namun jika memberi adalah ungkapan tanda kasih, dapat melalui:
+          Doa restu Bapak/Ibu merupakan karunia terindah bagi kami. Namun jika memberi adalah ungkapan tanda kasih, dapat melalui:
         </p>
 
         <div className="p-4 bg-black/40 rounded-xl border border-white/10 space-y-2">

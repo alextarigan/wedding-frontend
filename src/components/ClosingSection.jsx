@@ -11,7 +11,7 @@ export default function ClosingSection() {
         </p>
         <h2 className="text-4xl font-serif text-luxury-gold italic pt-4">Alex & Resi</h2>
         <div className="h-px w-24 bg-luxury-gold/50 mx-auto pt-6" />
-        <p className="text-xs text-stone-500 pt-4">© 2026 Alex & Resi Wedding. All Rights Reserved.</p>
+        <p className="text-xs text-stone-500 pt-4">© 2026 Alex & Resi Wedding.</p>
       </motion.div>
     </div>
   );

@@ -10,11 +10,12 @@ import MusicPlayer from './components/MusicPlayer';
 import GallerySection from './components/GallerySection';
 import LoveStorySection from './components/LoveStorySection';
 import ClosingSection from './components/ClosingSection';
+import PhotoboothSection from './components/PhotoboothSection';
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [guestName, setGuestName] = useState('Tamu Undangan');
+  const [guestName, setGuestName] = useState('');
 
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
@@ -43,9 +44,9 @@ export default function App() {
       <CoupleSection />
       <EventSection />
       <LoveStorySection/>
+      <PhotoboothSection/>
       <GallerySection />
       <GiftSection />
-      {/* <RsvpForm /> */}
       <ClosingSection/>
       
       {isOpen && <MusicPlayer isPlaying={isPlaying} togglePlay={togglePlay} />}

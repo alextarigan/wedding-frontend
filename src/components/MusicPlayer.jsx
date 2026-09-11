@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { FaMusic, FaPause } from 'react-icons/fa';
 
 export default function MusicPlayer({ isPlaying, togglePlay }) {
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play().catch((error) => {
+          console.log("Autoplay diblokir oleh browser:", error);
+        });
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlaying]);
+
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      {isPlaying && (
-        <iframe
-          title="BGM"
-          src="https://www.youtube.com/embed/cFJ7B1wNIFg?autoplay=1&loop=1&playlist=cFJ7B1wNIFg"
-          className="hidden"
-          allow="autoplay"
-        />
-      )}
+      {/* File MP3 Lokal */}
+      <audio 
+        ref={audioRef} 
+        src="/assets/bgm.mp3" 
+        loop 
+        preload="auto"
+      />
 
       <button 
         onClick={togglePlay}

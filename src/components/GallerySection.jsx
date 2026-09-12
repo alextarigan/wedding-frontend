@@ -6,13 +6,15 @@ export default function GallerySection() {
 
   const photos = [
     "/assets/gallery/RPW_9784.webp",
-    "/assets/gallery/RPW_0008.webp",
     "/assets/gallery/RPW_9738.webp",
-    "/assets/gallery/RPW_9939.webp",
-    "/assets/gallery/RPW_9962.webp",
-    "/assets/gallery/RPW_9971.webp",
-    "/assets/gallery/RPW_0071.webp",
-    "/assets/gallery/RPW_0147.webp",
+    "/assets/gallery/IMG_5046.JPG",
+    "/assets/gallery/IMG_5047.JPG",
+    "/assets/gallery/IMG_6034.JPG",
+    "/assets/gallery/IMG_6070.JPG",
+    "/assets/gallery/IMG_6075.JPG",
+    "/assets/gallery/IMG_6104.JPG",
+    "/assets/gallery/IMG_6108.JPG",
+    "/assets/gallery/IMG_6261.JPG",
   ];
 
   return (

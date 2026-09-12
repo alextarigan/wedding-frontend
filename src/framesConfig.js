@@ -39,5 +39,17 @@ export const frames = [
     boxes: [
       { x: 341, y: 204, width: 410, height: 418 } 
     ]
+  },
+  {
+    id: 'frame-4',
+    name: 'Film Strip Wedding',
+    imageUrl: '/frames/frame-4.png', 
+    width: 1080,      
+    height: 1920,       
+    slots: 2,         
+    boxes: [
+      { x: 195, y: 148, width: 635, height: 575 }, 
+      { x: 195, y: 1012, width: 635, height: 575 }  
+    ]
   }
 ];

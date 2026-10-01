@@ -6,8 +6,7 @@ export default function EventSection() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    // Target waktu: 06 November 2026 pukul 08:00 WIB
-    const targetDate = new Date('2026-11-06T08:00:00').getTime();
+    const targetDate = new Date('2026-11-06T08:30:00').getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();

@@ -5,12 +5,12 @@ import HeroSection from './components/HeroSection';
 import CoupleSection from './components/CoupleSection';
 import EventSection from './components/EventSection';
 import GiftSection from './components/GiftSection';
-import RsvpForm from './components/RsvpForm';
 import MusicPlayer from './components/MusicPlayer';
 import GallerySection from './components/GallerySection';
 import LoveStorySection from './components/LoveStorySection';
 import ClosingSection from './components/ClosingSection';
 import PhotoboothSection from './components/PhotoboothSection';
+import WishesSection from './components/WishesSection';
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,6 +47,7 @@ export default function App() {
       <PhotoboothSection/>
       <GallerySection />
       <GiftSection />
+      <WishesSection/>
       <ClosingSection/>
       
       {isOpen && <MusicPlayer isPlaying={isPlaying} togglePlay={togglePlay} />}

@@ -182,3 +182,18 @@
     border-right-color: var(--border);
   }
 }
+
+/* Styling Scrollbar Kustom untuk Kotak Ucapan */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(212, 175, 55, 0.3); /* Warna emas transparan */
+  border-radius: 10px;
+}
+.scrollbar-thin:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(212, 175, 55, 0.6);
+} 

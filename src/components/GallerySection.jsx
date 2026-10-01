@@ -19,12 +19,15 @@ export default function GallerySection() {
     "/assets/gallery/RPW_0189.webp",
     "/assets/gallery/DSC07458.webp",
     "/assets/gallery/DSC07564.webp",
+    
     "/assets/gallery/DSC07323.webp",
     "/assets/gallery/DSC07739.webp",
     "/assets/gallery/DSC07543.webp",
+    "/assets/gallery/DSC07878.webp",
     "/assets/gallery/DSC07827.webp",
     "/assets/gallery/RPW_9939.webp",
     "/assets/gallery/RPW_9787.webp",
+    "/assets/gallery/RPW_9803.webp",
     "/assets/gallery/RPW_9686.webp",
   ];
 

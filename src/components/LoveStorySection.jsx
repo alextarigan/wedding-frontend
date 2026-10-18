@@ -6,17 +6,17 @@ export default function LoveStorySection() {
     {
       year: "2016",
       title: "Awal Perkenalan",
-      desc: "Bermula dari sapaan sederhana di gereja semasa sekolah. Dari interaksi yang biasa saja, perlahan muncul kecocokan yang membuat hubungan menjadi semakin dekat.",
+      desc: "Perjalanan kami dimulai dari masa SMA, cerita sederhana yang berawal dari teman menjadi tempat berbagi.",
     },
     {
       year: "2021",
       title: "Memulai Kembali",
-      desc: "Sempat berjalan sendiri-sendiri, waktu akhirnya mempertemukan kembali di masa kuliah. Lembaran baru pun dimulai dengan komitmen dan tujuan yang lebih matang.",
+      desc: "Namun, garis tadkir meminta kami berpisah alur. Selama 4 tahun, kami melangkah di jalan masing-masing, belajar, bertumbuh, dan mendewasakan diri ditempat yang berbeda.",
     },
     {
       year: "6 November 2026",
       title: "Hari Bahagia",
-      desc: "Setelah melewati banyak fase dan proses, tiba waktunya untuk meresmikan langkah. Sebuah keputusan untuk mengikat janji dan terus berdampingan seumur hidup.",
+      desc: "Sejauh apapun kita berputar, takdir selalu tahu kemana ia harus kembali. Tuhan menuntun langkah kami untuk berpapasan lagi bukan sekedar mengenang masa lalu tetapi untuk merajut masa depan, karena setiap penantian punya cerita, setiap doa punya waktu, dan Tuhan yang mengatur setiap langkahnya. Setelah perjalanan panjang yang mengajarkan kami tentang kesabaran, kini kami siap melangkah ke tujuan yang sama. Melangkah bersama dalam ikatan suci pernikahan sebagai suami & istri.",
     },
   ];
 

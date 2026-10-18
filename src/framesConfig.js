@@ -48,8 +48,8 @@ export const frames = [
     height: 1920,       
     slots: 2,         
     boxes: [
-      { x: 195, y: 148, width: 635, height: 575 }, 
-      { x: 195, y: 1012, width: 635, height: 575 }  
+      { x: 198, y: 138, width: 684, height: 868 }, 
+      { x: 198, y: 970, width: 684, height: 868 } 
     ]
   }
 ];

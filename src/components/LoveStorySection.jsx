@@ -6,17 +6,17 @@ export default function LoveStorySection() {
     {
       year: "2016",
       title: "Awal Perkenalan",
-      desc: "Perjalanan kami dimulai dari masa SMA, cerita sederhana yang berawal dari teman menjadi tempat berbagi.",
+      desc: "Perjalanan kami dimulai dari masa SMA, cerita sederhana yang berawal dari teman menjadi tempat berbagi.Namun, garis tadkir meminta kami berpisah alurSelama 4 tahun, kami melangkah di jalan masing-masing, belajar, bertumbuh, dan mendewasakan diri ditempat yang berbeda.",
     },
     {
       year: "2021",
       title: "Memulai Kembali",
-      desc: "Namun, garis tadkir meminta kami berpisah alur. Selama 4 tahun, kami melangkah di jalan masing-masing, belajar, bertumbuh, dan mendewasakan diri ditempat yang berbeda.",
+      desc: "Sejauh apapun kita berputar, takdir selalu tahu kemana ia harus kembali. Tuhan menuntun langkah kami untuk berpapasan lagi bukan sekedar mengenang masa lalu tetapi untuk merajut masa depan, karena setiap penantian punya cerita, setiap doa punya waktu, dan Tuhan yang mengatur setiap langkahnya.",
     },
     {
       year: "6 November 2026",
       title: "Hari Bahagia",
-      desc: "Sejauh apapun kita berputar, takdir selalu tahu kemana ia harus kembali. Tuhan menuntun langkah kami untuk berpapasan lagi bukan sekedar mengenang masa lalu tetapi untuk merajut masa depan, karena setiap penantian punya cerita, setiap doa punya waktu, dan Tuhan yang mengatur setiap langkahnya. Setelah perjalanan panjang yang mengajarkan kami tentang kesabaran, kini kami siap melangkah ke tujuan yang sama. Melangkah bersama dalam ikatan suci pernikahan sebagai suami & istri.",
+      desc: "Setelah perjalanan panjang yang mengajarkan kami tentang kesabaran, kini kami siap melangkah ke tujuan yang sama. Melangkah bersama dalam ikatan suci pernikahan sebagai suami & istri.",
     },
   ];
 

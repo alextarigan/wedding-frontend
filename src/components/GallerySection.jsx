@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function GallerySection() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  
+  // State untuk mengontrol jumlah foto yang ditampilkan
+  const INITIAL_COUNT = 10;
+  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
 
   const photos = [
     "/assets/gallery/RPW_9784.webp",
@@ -30,8 +34,41 @@ export default function GallerySection() {
     "/assets/gallery/DSC07827.webp",
   ];
 
+  // Fungsi menambah jumlah foto yang dimuat
+  const handleShowMore = () => {
+    setVisibleCount((prev) => Math.min(prev + 10, photos.length));
+  };
+
+  // Fungsi Geser Kanan (Next)
+  const handleNext = useCallback((e) => {
+    e?.stopPropagation();
+    setSelectedIndex((prev) => (prev === photos.length - 1 ? 0 : prev + 1));
+  }, [photos.length]);
+
+  // Fungsi Geser Kiri (Prev)
+  const handlePrev = useCallback((e) => {
+    e?.stopPropagation();
+    setSelectedIndex((prev) => (prev === 0 ? photos.length - 1 : prev - 1));
+  }, [photos.length]);
+
+  // Navigasi Keyboard
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (selectedIndex === null) return;
+      if (e.key === "ArrowRight") handleNext();
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "Escape") setSelectedIndex(null);
+    },
+    [selectedIndex, handleNext, handlePrev]
+  );
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
+
   return (
-    <div className="py-32 px-6 md:px-12 bg-[#0a0a0a] text-stone-300 flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="py-32 bg-[#0a0a0a] text-stone-300 flex flex-col items-center justify-center relative overflow-hidden">
       {/* Efek Cahaya Latar Lembut */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-luxury-gold/5 rounded-full blur-[160px] pointer-events-none" />
 
@@ -41,7 +78,7 @@ export default function GallerySection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="max-w-3xl w-full text-center space-y-4 mb-20 relative z-10"
+        className="max-w-3xl w-full text-center space-y-4 mb-16 relative z-10 px-6 md:px-12"
       >
         <p className="text-xs uppercase tracking-[0.5em] text-luxury-gold font-sans">
           Captured Moments
@@ -52,78 +89,133 @@ export default function GallerySection() {
         <div className="h-px w-20 bg-luxury-gold/40 mx-auto pt-2" />
       </motion.div>
 
-      {/* Grid Layout (Urutan Kiri ke Kanan) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full relative z-10">
-        {photos.map((photo, index) => (
+      {/* Full-Width Grid Layout (Hanya memotong foto sesuai visibleCount) */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 md:gap-2 w-full px-1 md:px-2 relative z-10">
+        {photos.slice(0, visibleCount).map((photo, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-10% 0px" }}
-            transition={{ duration: 0.8, delay: index * 0.05, ease: "easeOut" }}
-            onClick={() => setSelectedImage(photo)}
-            className="overflow-hidden rounded-2xl border border-white/15 bg-black/40 shadow-2xl group relative cursor-zoom-in aspect-[4/3]"
+            transition={{ duration: 0.6, delay: (index % 5) * 0.08, ease: "easeOut" }}
+            onClick={() => setSelectedIndex(index)}
+            className="overflow-hidden bg-black/40 group relative cursor-zoom-in aspect-square sm:aspect-[4/5]"
           >
-            {/* Foto */}
             <img
               src={photo}
               alt={`Gallery ${index + 1}`}
               loading="lazy"
-              className="w-full h-full object-cover transform transition-transform duration-700 ease-out group-hover:scale-105 filter contrast-110 brightness-95"
+              className="w-full h-full object-cover transform transition-transform duration-700 ease-out group-hover:scale-110 filter contrast-110 brightness-95"
             />
-
-            {/* Bingkai Emas Tipis */}
-            <div className="absolute inset-3 border border-luxury-gold/20 rounded-xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-            {/* Overlay saat Disorot */}
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
-              <span className="text-white text-[11px] tracking-[0.3em] uppercase font-sans border border-white/40 px-5 py-2.5 rounded-full bg-black/30 shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-                View Photo
+            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
+              <span className="text-white text-[10px] sm:text-xs tracking-[0.3em] uppercase font-sans border border-white/40 px-4 py-2 sm:px-6 sm:py-3 rounded-none sm:rounded-full bg-black/20 shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                View
               </span>
             </div>
+            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-luxury-gold group-hover:w-full transition-all duration-700 ease-out" />
           </motion.div>
         ))}
       </div>
 
-      {/* Lightbox Modal */}
+      {/* Tombol Show More */}
+      {visibleCount < photos.length && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mt-12 relative z-10 text-center"
+        >
+          <button
+            onClick={handleShowMore}
+            className="px-8 py-3.5 text-xs uppercase tracking-[0.3em] font-sans text-luxury-gold border border-luxury-gold/40 hover:border-luxury-gold hover:bg-luxury-gold hover:text-black rounded-full transition-all duration-500 shadow-xl group flex items-center gap-3 mx-auto"
+          >
+            <span>Show More</span>
+            <span className="text-[10px] opacity-60 group-hover:opacity-100">
+              ({photos.length - visibleCount} Left)
+            </span>
+          </button>
+        </motion.div>
+      )}
+
+      {/* Lightbox Modal Slider + Drag/Swipe */}
       <AnimatePresence>
-        {selectedImage && (
+        {selectedIndex !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
+            onClick={() => setSelectedIndex(null)}
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-2 sm:p-8 select-none"
           >
+            {/* Tombol Tutup */}
             <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-6 right-6 md:top-10 md:right-10 text-white/60 hover:text-luxury-gold transition-colors p-3 rounded-full bg-white/5 border border-white/10"
+              onClick={() => setSelectedIndex(null)}
+              className="absolute top-4 right-4 sm:top-8 sm:right-8 text-white/60 hover:text-luxury-gold transition-colors p-2 sm:p-3 rounded-full bg-white/5 border border-white/10 z-[110]"
               aria-label="Tutup Preview"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                  d="M6 18L18 6M6 6l12 12"
-                />
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
 
-            <motion.img
-              src={selectedImage}
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="w-auto h-auto max-w-full max-h-[85vh] object-contain rounded-xl shadow-[0_25px_60px_rgba(0,0,0,0.8)] border border-white/10"
-              alt="Preview Full"
-            />
+            {/* Tombol Kiri */}
+            <button
+              onClick={handlePrev}
+              className="hidden sm:flex absolute left-4 sm:left-8 text-white/60 hover:text-luxury-gold transition-colors p-3 sm:p-4 rounded-full bg-black/50 hover:bg-black/80 border border-white/10 z-[110]"
+              aria-label="Foto Sebelumnya"
+            >
+              <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Tombol Kanan */}
+            <button
+              onClick={handleNext}
+              className="hidden sm:flex absolute right-4 sm:right-8 text-white/60 hover:text-luxury-gold transition-colors p-3 sm:p-4 rounded-full bg-black/50 hover:bg-black/80 border border-white/10 z-[110]"
+              aria-label="Foto Berikutnya"
+            >
+              <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Area Gambar Utama */}
+            <div 
+              className="relative w-full h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <motion.img
+                key={selectedIndex}
+                src={photos[selectedIndex]}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.7}
+                onDragEnd={(_, info) => {
+                  const swipeThreshold = 50;
+                  if (info.offset.x < -swipeThreshold) {
+                    handleNext();
+                  } else if (info.offset.x > swipeThreshold) {
+                    handlePrev();
+                  }
+                }}
+                className="w-auto h-auto max-w-full max-h-[85vh] sm:max-h-[90vh] object-contain shadow-[0_25px_60px_rgba(0,0,0,0.8)] cursor-grab active:cursor-grabbing touch-pan-y"
+                alt={`Preview ${selectedIndex + 1}`}
+              />
+
+              {/* Indikator Urutan Foto */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
+                <span className="text-white/70 text-xs tracking-widest font-sans">
+                  {selectedIndex + 1} / {photos.length}
+                </span>
+                <span className="text-[10px] text-white/40 tracking-wider font-sans sm:hidden">
+                  ← usap untuk geser →
+                </span>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

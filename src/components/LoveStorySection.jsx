@@ -22,8 +22,18 @@ export default function LoveStorySection() {
 
   return (
     <div className="py-32 px-6 bg-[#0a0a0a] text-stone-300 relative overflow-hidden flex flex-col items-center">
-      {/* Efek Cahaya Latar (Subtle Glow) */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-full max-w-lg h-96 bg-luxury-gold/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* Background Image & Gradient Layer */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/assets/gallery/IMG_6034.JPG" 
+          alt="Background Love Story" 
+          className="w-full h-full object-cover filter brightness-[0.35] contrast-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-black/60 to-[#0a0a0a]" />
+      </div>
+
+      {/* Efek Pendaran Emas Latar (Subtle Glow) */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-full max-w-lg h-96 bg-luxury-gold/5 rounded-full blur-[120px] pointer-events-none z-0" />
 
       {/* Header */}
       <motion.div
@@ -43,12 +53,11 @@ export default function LoveStorySection() {
 
       {/* Timeline Container */}
       <div className="max-w-4xl w-full relative z-10">
-        {/* Garis Tengah Lembut (Vertical Line) */}
+        {/* Garis Tengah Vertical Line */}
         <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-luxury-gold/30 to-transparent md:-translate-x-1/2" />
 
         <div className="space-y-16 md:space-y-24">
           {stories.map((item, index) => {
-            // Logika untuk zig-zag pada desktop
             const isEven = index % 2 === 0;
 
             return (
@@ -60,7 +69,7 @@ export default function LoveStorySection() {
                 transition={{ duration: 1, delay: index * 0.2, ease: "easeOut" }}
                 className="relative flex flex-col md:flex-row items-start md:items-center group"
               >
-                {/* Titik (Node) Emas Minimalis */}
+                {/* Titik Node Emas */}
                 <div className="absolute left-[15px] md:left-1/2 top-1 md:top-1/2 w-2.5 h-2.5 bg-luxury-gold rounded-full transform -translate-x-1/2 md:-translate-y-1/2 shadow-[0_0_15px_rgba(212,175,55,0.6)]" />
 
                 {/* Konten Teks */}

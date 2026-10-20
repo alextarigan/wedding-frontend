@@ -4,15 +4,26 @@ import { FaCameraRetro, FaMagic } from "react-icons/fa";
 
 export default function PhotoboothSection() {
   return (
-    <div className="py-24 px-6 bg-[#0e0e0e] text-stone-300 flex flex-col items-center justify-center relative overflow-hidden">
-      {/* Efek Cahaya Latar */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-luxury-gold/5 rounded-full blur-[140px] pointer-events-none" />
+    <div className="py-24 px-6 bg-[#0a0a0a] text-stone-300 flex flex-col items-center justify-center relative overflow-hidden">
+      {/* Background Image & Gradient Layer */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/assets/gallery/DSC07827.webp" 
+          alt="Background Photobooth" 
+          className="w-full h-full object-cover filter brightness-[0.35] contrast-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-black/60 to-[#0a0a0a]" />
+      </div>
 
+      {/* Efek Cahaya Latar (Subtle Gold Glow) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-luxury-gold/5 rounded-full blur-[140px] pointer-events-none z-0" />
+
+      {/* Main Content Card dengan relative z-10 */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
         className="max-w-2xl w-full text-center space-y-6 relative z-10 bg-white/5 backdrop-blur-md border border-white/10 p-8 md:p-12 rounded-3xl shadow-2xl"
       >
         <div className="w-14 h-14 bg-luxury-gold/10 rounded-full flex items-center justify-center mx-auto text-luxury-gold text-2xl border border-luxury-gold/20">

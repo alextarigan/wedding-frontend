@@ -16,7 +16,7 @@ export default function GallerySection() {
     "/assets/gallery/RPW_9686.webp",
     "/assets/gallery/RPW_9738.webp",
     "/assets/gallery/IMG_6261.JPG",
-    "/assets/gallery/IMG_5046.JPG",
+    "/assets/gallery/IMG_5046.webp",
     "/assets/gallery/IMG_5047.JPG",
     "/assets/gallery/RPW_0202.webp",
     "/assets/gallery/IMG_6034.JPG",
@@ -69,8 +69,18 @@ export default function GallerySection() {
 
   return (
     <div className="py-32 bg-[#0a0a0a] text-stone-300 flex flex-col items-center justify-center relative overflow-hidden">
+      {/* Background Image & Gradient Layer */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/assets/gallery/DSC07564.webp" 
+          alt="Background Gallery" 
+          className="w-full h-full object-cover filter brightness-[0.35] contrast-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-black/60 to-[#0a0a0a]" />
+      </div>
+
       {/* Efek Cahaya Latar Lembut */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-luxury-gold/5 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-luxury-gold/5 rounded-full blur-[160px] pointer-events-none z-0" />
 
       {/* Header Galeri */}
       <motion.div
@@ -89,7 +99,7 @@ export default function GallerySection() {
         <div className="h-px w-20 bg-luxury-gold/40 mx-auto pt-2" />
       </motion.div>
 
-      {/* Full-Width Grid Layout (Hanya memotong foto sesuai visibleCount) */}
+      {/* Full-Width Grid Layout */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 md:gap-2 w-full px-1 md:px-2 relative z-10">
         {photos.slice(0, visibleCount).map((photo, index) => (
           <motion.div

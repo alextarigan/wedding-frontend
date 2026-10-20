@@ -43,77 +43,90 @@ export default function EventSection() {
   ];
 
   return (
-    <div className="min-h-screen bg-luxury-dark text-stone-300 py-24 px-6 flex flex-col items-center justify-center">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        className="max-w-3xl w-full text-center space-y-4 mb-16"
-      >
-        <p className="text-xs tracking-[0.4em] uppercase text-stone-400 font-sans">Save The Date</p>
-        <h2 className="text-4xl md:text-5xl font-serif text-luxury-gold italic">Rangkaian Acara</h2>
-        <div className="h-px w-24 bg-luxury-gold/50 mx-auto" />
+    <div className="py-24 px-6 bg-[#0a0a0a] text-stone-300 flex flex-col items-center justify-center relative overflow-hidden">
+      {/* Background Image & Gradient Layer mengikuti CoupleSection */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/assets/gallery/IMG_6104.JPG" 
+          alt="Background Event" 
+          className="w-full h-full object-cover filter brightness-[0.35] contrast-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-black/60 to-[#0a0a0a]" />
+      </div>
 
-        {/* Countdown Timer Box */}
-        <div className="grid grid-cols-4 gap-4 max-w-lg mx-auto pt-8">
-          {[
-            { label: 'Hari', value: timeLeft.days },
-            { label: 'Jam', value: timeLeft.hours },
-            { label: 'Menit', value: timeLeft.minutes },
-            { label: 'Detik', value: timeLeft.seconds },
-          ].map((item, idx) => (
-            <div key={idx} className="bg-white/5 backdrop-blur-md border border-white/10 p-4 rounded-2xl shadow-lg">
-              <div className="text-2xl md:text-3xl font-serif text-luxury-gold font-bold">{item.value}</div>
-              <div className="text-[10px] md:text-xs uppercase tracking-widest text-stone-400 font-sans mt-1">{item.label}</div>
-            </div>
-          ))}
-        </div>
-      </motion.div>
+      {/* Main Content Container dengan relative z-10 */}
+      <div className="relative z-10 w-full max-w-4xl flex flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="max-w-3xl w-full text-center space-y-4 mb-16"
+        >
+          <p className="text-xs tracking-[0.4em] uppercase text-luxury-gold font-sans">Save The Date</p>
+          <h2 className="text-4xl md:text-5xl font-serif text-luxury-gold italic">Rangkaian Acara</h2>
+          <div className="h-px w-20 bg-luxury-gold/40 mx-auto" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full">
-        {events.map((event, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: index * 0.15 }}
-            className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-3xl shadow-xl flex flex-col justify-between hover:border-luxury-gold/40 transition-colors group"
-          >
-            <div className="space-y-4">
-              <h3 className="text-2xl font-serif text-luxury-gold italic group-hover:scale-[1.02] transition-transform origin-left">
-                {event.title}
-              </h3>
-              
-              <div className="space-y-2 text-sm text-stone-300 font-light">
-                <div className="flex items-center gap-3">
-                  <FaCalendarAlt className="text-luxury-gold shrink-0" />
-                  <span>{event.date}</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <FaClock className="text-luxury-gold shrink-0" />
-                  <span>{event.time}</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <FaMapMarkerAlt className="text-luxury-gold shrink-0 mt-1" />
-                  <span>{event.location}</span>
+          {/* Countdown Timer Box */}
+          <div className="grid grid-cols-4 gap-4 max-w-lg mx-auto pt-8">
+            {[
+              { label: 'Hari', value: timeLeft.days },
+              { label: 'Jam', value: timeLeft.hours },
+              { label: 'Menit', value: timeLeft.minutes },
+              { label: 'Detik', value: timeLeft.seconds },
+            ].map((item, idx) => (
+              <div key={idx} className="bg-white/5 backdrop-blur-md border border-white/10 p-4 rounded-2xl shadow-lg">
+                <div className="text-2xl md:text-3xl font-serif text-luxury-gold font-bold">{item.value}</div>
+                <div className="text-[10px] md:text-xs uppercase tracking-widest text-stone-400 font-sans mt-1">{item.label}</div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+          {events.map((event, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
+              className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-3xl shadow-xl flex flex-col justify-between hover:border-luxury-gold/40 transition-colors group"
+            >
+              <div className="space-y-4">
+                <h3 className="text-2xl font-serif text-luxury-gold italic group-hover:scale-[1.02] transition-transform origin-left">
+                  {event.title}
+                </h3>
+                
+                <div className="space-y-2 text-sm text-stone-300 font-light">
+                  <div className="flex items-center gap-3">
+                    <FaCalendarAlt className="text-luxury-gold shrink-0" />
+                    <span>{event.date}</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <FaClock className="text-luxury-gold shrink-0" />
+                    <span>{event.time}</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <FaMapMarkerAlt className="text-luxury-gold shrink-0 mt-1" />
+                    <span>{event.location}</span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="mt-8 pt-4 border-t border-white/10">
-              <a
-                href={event.gmapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full py-2.5 px-4 bg-white/10 hover:bg-luxury-gold hover:text-black text-xs uppercase tracking-widest font-sans rounded-xl transition-all"
-              >
-                Lihat Lokasi (Google Maps)
-              </a>
-            </div>
-          </motion.div>
-        ))}
+              <div className="mt-8 pt-4 border-t border-white/10">
+                <a
+                  href={event.gmapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-full py-2.5 px-4 bg-white/10 hover:bg-luxury-gold hover:text-black text-xs uppercase tracking-widest font-sans rounded-xl transition-all"
+                >
+                  Lihat Lokasi (Google Maps)
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );

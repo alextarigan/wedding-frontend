@@ -6,7 +6,7 @@ export default function LoveStorySection() {
     {
       year: "2016",
       title: "Awal Perkenalan",
-      desc: "Perjalanan kami dimulai dari masa SMA, cerita sederhana yang berawal dari teman menjadi tempat berbagi. Namun, garis tadkir meminta kami berpisah alur. Selama 4 tahun, kami melangkah di jalan masing-masing, belajar, bertumbuh, dan mendewasakan diri ditempat yang berbeda.",
+      desc: "Perjalanan kami dimulai dari masa SMA, cerita sederhana yang berawal dari teman menjadi tempat berbagi. Namun, garis takdir meminta kami berpisah alur. Selama 4 tahun, kami melangkah di jalan masing-masing, belajar, bertumbuh, dan mendewasakan diri ditempat yang berbeda.",
     },
     {
       year: "2021",

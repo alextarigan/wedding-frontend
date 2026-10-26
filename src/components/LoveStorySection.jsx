@@ -25,7 +25,7 @@ export default function LoveStorySection() {
       {/* Background Image & Gradient Layer */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/assets/gallery/IMG_6034.JPG" 
+          src="/assets/gallery/IMG_6034.webp" 
           alt="Background Love Story" 
           className="w-full h-full object-cover filter brightness-[0.35] contrast-110"
         />

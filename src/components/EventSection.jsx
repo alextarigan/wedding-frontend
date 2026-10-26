@@ -47,7 +47,7 @@ export default function EventSection() {
       {/* Background Image & Gradient Layer mengikuti CoupleSection */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/assets/gallery/IMG_6104.JPG" 
+          src="/assets/gallery/IMG_6104.webp" 
           alt="Background Event" 
           className="w-full h-full object-cover filter brightness-[0.35] contrast-110"
         />

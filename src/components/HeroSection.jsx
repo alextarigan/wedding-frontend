@@ -11,7 +11,7 @@ export default function HeroSection({ onOpenInvitation }) {
           initial={{ scale: 1.08 }}
           animate={{ scale: 1 }}
           transition={{ duration: 12, ease: "easeOut" }}
-          src="/assets/gallery/RPW_0060.JPG"
+          src="/assets/gallery/RPW_0060.webp"
           alt="Alex & Resi Cover"
           className="w-full h-full object-cover filter brightness-[0.6] contrast-125"
         />

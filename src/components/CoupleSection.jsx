@@ -8,7 +8,7 @@ export default function CoupleSection() {
       
       <div className="absolute inset-0 z-0">
         <img 
-          src="/assets/gallery/RPW_0286.JPG" 
+          src="/assets/gallery/RPW_0286.webp" 
           alt="Background Couple" 
           className="w-full h-full object-cover filter brightness-[0.35] contrast-110"
         />
@@ -77,7 +77,7 @@ export default function CoupleSection() {
          
           <div className="relative w-64 h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black/40 backdrop-blur-sm mb-8 transition-transform duration-700 group-hover:scale-[1.02]">
             <img 
-              src={'/assets/gallery/IMG_5571.JPG'} 
+              src={'/assets/gallery/IMG_5571.webp'} 
               alt="Resi Oktavia" 
               className="w-full h-full object-cover filter contrast-115 brightness-95" 
             />
